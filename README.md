@@ -28,6 +28,24 @@ Add this line to your `~/.claude/CLAUDE.md` on the cluster:
 Claude Code will load the rules at the start of every session. Your own
 preferences can go below that line.
 
+## Usage (OpenCode)
+
+To make the custom instructions work with OpenCode, edit your existing (or
+create it) file at `~/.config/opencode/opencode.json` and add the
+`instructions` entry:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "~/unisr-data/agent-rules/CLAUDE.md"
+  ]
+}
+```
+
+If the file already exists, keep your other settings and just merge in the
+`instructions` entry.
+
 ## Contributing
 
 The copy in `/mnt/data/unisr-data/agent-rules` is shared by every user:
