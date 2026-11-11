@@ -46,6 +46,30 @@ create it) file at `~/.config/opencode/opencode.json` and add the
 If the file already exists, keep your other settings and just merge in the
 `instructions` entry.
 
+## Usage (GitHub Copilot CLI)
+
+Link the rules to Copilot's global instructions file by running:
+
+```bash
+mkdir -p ~/.copilot
+ln -s /mnt/data/unisr-data/agent-rules/CLAUDE.md ~/.copilot/copilot-instructions.md
+```
+
+Since the main global file is now taken by the symlink, use Copilot's
+supplementary instructions folder for your own rules. Copilot automatically
+loads any Markdown files found inside the `instructions` subdirectory:
+
+```bash
+mkdir -p ~/.copilot/instructions
+```
+
+Add as many custom files as you need (e.g.
+`~/.copilot/instructions/python-style.md`,
+`~/.copilot/instructions/git-rules.md`).
+
+Copilot reads the symlinked cluster rules first, then automatically appends
+all files in this directory on every prompt.
+
 ## Contributing
 
 The copy in `/mnt/data/unisr-data/agent-rules` is shared by every user:
